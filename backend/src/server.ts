@@ -9,9 +9,6 @@ const server = express();
 
 server.use(json());
 
-//base endpoint
-server.use('/');
-
 //Redirect to User Routes
 server.use('/users', userRouter);
 
