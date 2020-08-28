@@ -1,3 +1,3 @@
-import { User, UserInterface } from './user';
+import { User, CreateUserInterface } from './user';
 
-export { User, UserInterface };
+export { User, CreateUserInterface };
