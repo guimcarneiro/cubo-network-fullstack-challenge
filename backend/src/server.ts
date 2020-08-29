@@ -9,10 +9,8 @@ const server = express();
 
 server.use(json());
 
-//Redirect to User Routes
 server.use('/users', userRouter);
 
-//Error Handler
 server.use(errorHandler);
 
 server.listen(3000);
