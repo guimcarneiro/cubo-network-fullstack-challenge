@@ -7,7 +7,7 @@ const USERS: User[] = [];
 class UserService {
 
     static createUser = (user: CreateUserInterface) => {
-        const newUser = new User(user.firstName, user.lastName, user.participation);
+        const newUser = new User(user.firstName, user.lastName, user.amount);
 
         USERS.push(newUser);
         
@@ -24,7 +24,7 @@ class UserService {
     
         USERS[userIndex].setFirstName = updatedUser.firstName;
         USERS[userIndex].setLastName = updatedUser.lastName;
-        USERS[userIndex].setParticipation = updatedUser.participation;
+        USERS[userIndex].setAmount = updatedUser.amount;
 
         return updatedUser;
     }

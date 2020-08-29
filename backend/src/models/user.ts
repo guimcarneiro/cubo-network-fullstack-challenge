@@ -3,19 +3,19 @@ import { generateId } from "../utils";
 export interface CreateUserInterface {
     firstName: string;
     lastName: string;
-    participation: number;
+    amount: number;
 }
 
 export class User {
     private readonly id: string;
     private firstName: string;
     private lastName: string;
-    private participation: number;
+    private amount: number;
 
     constructor(
         firstName: string,
         lastName: string,
-        participation: number
+        amount: number
     ){  
         if(!firstName){
             throw new Error('Invalid User first name');
@@ -23,13 +23,13 @@ export class User {
         if(!lastName){
             throw new Error('Invalid User last name');
         }
-        if(participation > 100 || participation < 0){
-            throw new Error('Invalid User Participation');
+        if( amount < 0){
+            throw new Error('Invalid User amount');
         }
         this.id = String(generateId());
         this.firstName = firstName;
         this.lastName = lastName;
-        this.participation = participation;
+        this.amount = amount;
     }
 
     get getId(): string{
@@ -44,8 +44,8 @@ export class User {
         return this.lastName;
     }
 
-    get getParticipation(): number{
-        return this.participation;
+    get getAmount(): number{
+        return this.amount;
     }
 
     set setFirstName(firstName: string){
@@ -56,8 +56,8 @@ export class User {
         this.lastName = lastName;
     }
 
-    set setParticipation(participation: number){
-        this.participation = participation;
+    set setAmount(amount: number){
+        this.amount = amount;
     }
 
 }
