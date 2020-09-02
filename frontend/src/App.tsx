@@ -1,14 +1,24 @@
-import React from 'react';
-import { PublicLayout } from './layouts';
+import React, { ReactNode } from "react";
+import { PublicLayout } from "./layouts";
+import { Landing } from "./pages";
 
-const App:React.FC = () => {
+import "./App.css";
+
+const App: React.FC = () => {
+
+  const [headerContent, setHeaderContent] = React.useState<ReactNode>(null);
+
+  const innerHeaderContentCallback = (component: ReactNode) => {
+    setHeaderContent(component);
+  }
+
   return (
     <div className="App">
-      <PublicLayout>
-        
+      <PublicLayout innerHeader={ headerContent }>
+        <Landing customHeader={ innerHeaderContentCallback } />
       </PublicLayout>
     </div>
   );
-}
+};
 
 export default App;

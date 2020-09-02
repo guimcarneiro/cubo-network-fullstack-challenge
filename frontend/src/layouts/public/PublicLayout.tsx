@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from "react";
 
-import './PublicLayout.css';
+import PublicHeader from "./components/header/PublicHeader";
 
-const PublicLayout: React.FC = (props) => {
-    return (
-    <div className="public-layout">
-        <header>
-            <form>
-                <div className="inputs__container">
-                    <input type="text" placeholder="First Name" />
-                    <input type="text" placeholder="Last Name" />
-                    <input type="number" placeholder="Amount" />
-                </div>
-                <div className="submit-button__container">
-                    <button id="submit-button" type="submit">Add</button>
-                </div>
-            </form>
-        </header>
-        <div className="content">
-            { props.children }
-        </div>
-    </div>
-    )
+import "./PublicLayout.css";
+
+interface PublicLayoutProps {
+  innerHeader?: ReactNode;
 }
 
+const PublicLayout: React.FC<PublicLayoutProps> = (props) => {
+  return (
+    <div className="public-layout">
+      <PublicHeader>{props.innerHeader}</PublicHeader>
+
+      <div className="content">{props.children}</div>
+    </div>
+  );
+};
 
 export default PublicLayout;

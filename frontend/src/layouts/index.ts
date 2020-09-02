@@ -1,3 +1,3 @@
-import PublicLayout from './public/PublicLayout';
+import PublicLayout from "./public/PublicLayout";
 
 export { PublicLayout };
