@@ -1,3 +1,4 @@
 import PersonForm from "./person-form/PersonForm";
+import PersonTable from "./person-table/PersonTable";
 
-export { PersonForm };
+export { PersonForm, PersonTable };
