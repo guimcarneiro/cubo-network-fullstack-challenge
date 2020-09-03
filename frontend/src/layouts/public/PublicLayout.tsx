@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 
 import PublicHeader from "./components/header/PublicHeader";
 
@@ -9,6 +9,7 @@ interface PublicLayoutProps {
 }
 
 const PublicLayout: React.FC<PublicLayoutProps> = (props) => {
+
   return (
     <div className="public-layout">
       <PublicHeader>{props.innerHeader}</PublicHeader>

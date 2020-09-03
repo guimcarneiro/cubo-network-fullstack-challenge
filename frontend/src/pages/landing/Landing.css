@@ -7,14 +7,16 @@
 }
 
 .landing-page .container-1 {
-    width: 50%;
+    height: 50%;
+    width: 45%;
 
     display: flex;
     justify-content: center;
 }
 
 .landing-page .container-2 {
-    width: 50%;
+    height: 50%;
+    width: 45%;
 
     display: flex;
     justify-content: center;

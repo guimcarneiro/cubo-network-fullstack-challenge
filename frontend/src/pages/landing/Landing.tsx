@@ -2,7 +2,8 @@ import React, { useEffect, ReactNode } from "react";
 
 import "./Landing.css";
 import { PersonForm, PersonTable } from "../../components";
-import { PERSONSMock } from "../../utils";
+import { generateId } from "../../utils";
+import { Person } from "../../models/person.model";
 
 interface LandingPageProps {
   customHeader: (component: ReactNode) => void;
@@ -11,14 +12,27 @@ interface LandingPageProps {
 const Landing: React.FC<LandingPageProps> = (props) => {
   const { customHeader } = props;
 
+  const [data, setData] = React.useState<Person[]>([]);
+
   useEffect(() => {
-    customHeader(<PersonForm />);
-  }, [customHeader]);
+    customHeader(<PersonForm onSubmitForm={addPersonHandler}/>);
+  }, []);
+
+  const addPersonHandler = (firstName: string, lastName: string, amount: number) => {
+    let newPerson = {
+      id: generateId(),
+      firstName,
+      lastName,
+      amount
+    }
+
+    setData(prevData => [...prevData, newPerson]);
+  }
 
   return (
     <div className="landing-page">
       <div className="container-1">
-        <PersonTable data={PERSONSMock} />
+        <PersonTable data={data} />
       </div>
       <div className="container-2">Graphics</div>
     </div>
